@@ -4,10 +4,10 @@ import { ArrowRight, Check } from 'lucide-react';
 const STEPS = ['name', 'phone', 'email', 'college', 'budget'];
 
 const BUDGET_OPTIONS = [
-  { label: '0-10k', value: '0-10k' },
-  { label: '11k-15k', value: '11k-15k' },
-  { label: '16k-20k', value: '16k-20k' },
-  { label: '21k-25k', value: '21k-25k' },
+  { label: '0-10k', value: '10000' },
+  { label: '11k-15k', value: '15000' },
+  { label: '16k-20k', value: '20000' },
+  { label: '21k-25k', value: '25000' },
 ];
 
 const SaveYourSpot = () => {

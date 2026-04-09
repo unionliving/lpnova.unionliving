@@ -15,11 +15,11 @@ const locationOptions = [
 ];
 
 const budgetOptions = [
-  'Below Rs. 10,000',
-  'Rs. 10,000 - Rs. 15,000',
-  'Rs. 15,000 - Rs. 20,000',
-  'Rs. 20,000 - Rs. 25,000',
-  'Above Rs. 25,000',
+  { label: 'Below Rs. 10,000', value: '10000' },
+  { label: 'Rs. 10,000 - Rs. 15,000', value: '15000' },
+  { label: 'Rs. 15,000 - Rs. 20,000', value: '20000' },
+  { label: 'Rs. 20,000 - Rs. 25,000', value: '25000' },
+  { label: 'Above Rs. 25,000', value: '30000' },
 ];
 
 const initialForm = {
@@ -273,8 +273,8 @@ function EnquiryModal({ open, onClose }) {
                     >
                       <option value="">Select your budget</option>
                       {budgetOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
+                        <option key={option.value} value={option.value}>
+                          {option.label}
                         </option>
                       ))}
                     </select>
