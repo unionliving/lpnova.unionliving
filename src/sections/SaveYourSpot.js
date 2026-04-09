@@ -32,7 +32,7 @@ const SaveYourSpot = () => {
   const submitToLeadSquared = async () => {
     setIsSubmitting(true);
     try {
-      const accessKey = import.meta.env.VITE_LEADSQUARED_ACCESS_KEY;
+      const accessKey = (import.meta.env.VITE_LEADSQUARED_ACCESS_KEY || '').replace(/\\/g, '');
       const secretKey = import.meta.env.VITE_LEADSQUARED_SECRET_KEY;
 
       const apiUrl = `https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.CreateOrUpdate?postUpdatedLead=false&accessKey=${encodeURIComponent(accessKey)}&secretKey=${encodeURIComponent(secretKey)}`;

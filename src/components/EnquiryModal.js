@@ -1,4 +1,4 @@
-import { Clock3, MapPin, ShieldCheck, X } from 'lucide-react';
+import { Check, Clock3, MapPin, ShieldCheck, X } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
 const benefitItems = [
@@ -87,7 +87,7 @@ function EnquiryModal({ open, onClose }) {
     setIsSubmitting(true);
 
     try {
-      const accessKey = import.meta.env.VITE_LEADSQUARED_ACCESS_KEY;
+      const accessKey = (import.meta.env.VITE_LEADSQUARED_ACCESS_KEY || '').replace(/\\/g, '');
       const secretKey = import.meta.env.VITE_LEADSQUARED_SECRET_KEY;
 
       const apiUrl = `https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.CreateOrUpdate?postUpdatedLead=false&accessKey=${encodeURIComponent(accessKey)}&secretKey=${encodeURIComponent(secretKey)}`;
@@ -296,17 +296,26 @@ function EnquiryModal({ open, onClose }) {
             </form>
           </>
         ) : (
-          <div className="px-1 py-8 text-center sm:px-2 sm:py-10">
-            <h2 className="font-display text-[1.7rem] text-[#182033] sm:text-[2rem]">
-              Consultation Request Received
+          <div className="px-1 py-4 text-center sm:px-2 sm:py-6">
+            <h2 className="font-display pr-8 text-[1.8rem] text-[#182033] sm:pr-0 sm:text-[2.25rem]">
+              Get Free Consultation
             </h2>
-            <p className="mt-4 text-[0.97rem] leading-relaxed text-[#767c88] sm:text-[1.02rem]">
-              Thanks {form.fullName?.split(' ')[0] || 'there'}. Our team will call you on {form.phone} shortly.
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-[#767c88] sm:text-[1.05rem]">
+              Fill the form and our expert will call you within 2 hours
+            </p>
+            <div className="mx-auto mt-8 flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#ddf9e4] sm:mt-9">
+              <Check className="h-9 w-9 text-[#18a957]" strokeWidth={2.4} />
+            </div>
+            <h3 className="mt-7 text-[1.85rem] font-semibold leading-none text-[#182033] sm:text-[2.1rem]">
+              Enquiry submitted
+            </h3>
+            <p className="mx-auto mt-4 max-w-[320px] text-[1rem] leading-relaxed text-[#767c88] sm:text-[1.05rem]">
+              Our team will reach out shortly
             </p>
             <button
               type="button"
               onClick={handleClose}
-              className="mt-8 inline-flex h-14 items-center justify-center rounded-[16px] bg-[#df4f24] px-8 text-[1rem] font-semibold text-white transition-colors hover:bg-[#cb431a]"
+              className="mt-8 inline-flex h-14 w-full items-center justify-center rounded-[16px] bg-[#df4f24] px-8 text-[1rem] font-semibold text-white transition-colors hover:bg-[#cb431a] sm:mt-9 sm:h-16 sm:rounded-[18px] sm:text-[1.08rem]"
             >
               Close
             </button>

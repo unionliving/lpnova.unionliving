@@ -16,6 +16,15 @@ function App() {
         window.addEventListener('open-enquiry-modal', openModal);
         return () => window.removeEventListener('open-enquiry-modal', openModal);
     }, []);
+    useEffect(() => {
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+        if (window.location.pathname !== '/') {
+            window.history.replaceState({}, '', '/');
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }, []);
     return (<div className="min-h-screen bg-white">
       <EnquiryModal open={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)}/>
       <Navbar />
