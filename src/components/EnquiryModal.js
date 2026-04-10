@@ -1,5 +1,6 @@
 import { Check, Clock3, MapPin, ShieldCheck, X } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
+import { submitLeadSquaredLead } from '../lib/leadSquared';
 
 const benefitItems = [
   { icon: ShieldCheck, label: 'Verified Properties' },
@@ -79,11 +80,6 @@ function EnquiryModal({ open, onClose }) {
     setIsSubmitting(true);
 
     try {
-      const accessKey = (import.meta.env.VITE_LEADSQUARED_ACCESS_KEY || '').replace(/\\/g, '');
-      const secretKey = import.meta.env.VITE_LEADSQUARED_SECRET_KEY;
-
-      const apiUrl = `https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.CreateOrUpdate?postUpdatedLead=false&accessKey=${encodeURIComponent(accessKey)}&secretKey=${encodeURIComponent(secretKey)}`;
-
       const payload = [
         { Attribute: 'FirstName',                  Value: form.fullName },
         { Attribute: 'Phone',                       Value: form.phone.replace(/\D/g, '') },
@@ -94,22 +90,7 @@ function EnquiryModal({ open, onClose }) {
         { Attribute: 'SearchBy',                    Value: 'Phone' },
       ];
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const rawBody = await response.text();
-      let result = null;
-      try {
-        result = rawBody ? JSON.parse(rawBody) : null;
-      } catch {
-        result = null;
-      }
+      const { response, result } = await submitLeadSquaredLead(payload);
 
       if (response.ok && result?.Status === 'Success') {
         if (result?.Message) {
