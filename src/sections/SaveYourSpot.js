@@ -165,13 +165,13 @@ const SaveYourSpot = () => {
 
           <div className="hidden lg:block" />
 
-          <div className="flex h-full flex-col justify-center lg:max-w-[240px] lg:pt-[52px]">
+          <div className="flex h-full flex-col items-center justify-center text-center lg:items-start lg:text-left lg:max-w-[240px] lg:pt-[52px]">
             <h2 className="font-display text-[3.15rem] uppercase leading-[0.9] !tracking-[5px] text-black sm:text-[4.6rem] lg:text-[4.5rem]">
               <span className="block">Save</span>
               <span className="block">Your</span>
               <span className="block">Spot</span>
             </h2>
-            <p className="mt-7 max-w-[250px] text-[17px] leading-[1.35] text-[#2a251e]">
+            <p className="mt-7 max-w-[250px] text-[17px] leading-[1.35] text-[#2a251e] lg:max-w-[250px]">
               A lifestyle filled with networking, workshops, seminars, and housing made convenient.
             </p>
           </div>
