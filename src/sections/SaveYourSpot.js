@@ -43,7 +43,7 @@ const SaveYourSpot = () => {
         { Attribute: 'EmailAddress',                Value: form.email },
         { Attribute: 'mx_College_or_Company_Name',  Value: form.college },
         { Attribute: 'mx_Monthly_Budget',           Value: form.budget },
-        { Attribute: 'Source',                      Value: 'Outpost Landing Page' },
+        { Attribute: 'Source',                      Value: 'Ruturaj Nova Landing Page' },
         { Attribute: 'SearchBy',                    Value: 'Phone' },
       ];
 
@@ -198,7 +198,7 @@ const SaveYourSpot = () => {
           <div className="rounded-[16px] bg-white px-8 py-8 shadow-sm sm:px-10 lg:min-h-[606px] lg:px-10 lg:py-10">
             <div className="mx-auto max-w-[320px]">
               <div className="text-center">
-                <p className="text-[22px] font-semibold tracking-[-0.03em] text-[#1a1814]">Outpost</p>
+                <p className="text-[22px] font-semibold tracking-[-0.03em] text-[#1a1814]">Get Free Consultation                </p>
 
                 <div className="mx-auto mt-6 flex w-full max-w-[200px] items-center gap-[6px]">
                   {STEPS.map((currentStep, index) => {
@@ -323,17 +323,17 @@ const SaveYourSpot = () => {
                   </p>
                 </div>
               ) : (
-                <div className="mt-12 text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#fff5f0]">
-                    <Check className="h-6 w-6 text-[#f97316]" strokeWidth={2.5} />
+                <div className="mt-9 text-center">
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#ddf9e4]">
+                    <Check className="h-9 w-9 text-[#18a957]" strokeWidth={2.4} />
                   </div>
-                  <p className="mt-5 text-[18px] font-bold text-[#1a1814]">You&apos;re on the list!</p>
-                  <p className="mt-2 text-[13px] leading-[1.5] text-[#7a7570]">
-                    Thanks {form.name.split(' ')[0]}! Our team will reach you at{' '}
-                    <span className="font-semibold text-[#1a1814]">+91 {form.phone}</span>{' '}
-                    within 24 hours.
+                  <p className="mt-7 text-[1.85rem] font-semibold leading-none text-[#182033]">
+                    Enquiry submitted
                   </p>
-                  <div className="mt-6 rounded-[8px] border border-[#e8e2da] bg-[#faf7f3] px-5 py-4 text-left">
+                  <p className="mx-auto mt-4 max-w-[320px] text-[1rem] leading-relaxed text-[#767c88]">
+                    Our team will reach out shortly
+                  </p>
+                  <div className="hidden mt-6 rounded-[8px] border border-[#e8e2da] bg-[#faf7f3] px-5 py-4 text-left">
                     {[
                       ['Name', form.name],
                       ['Phone', `+91 ${form.phone} ✓`],

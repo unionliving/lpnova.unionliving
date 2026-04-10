@@ -7,13 +7,6 @@ const benefitItems = [
   { icon: MapPin, label: 'Prime Locations' },
 ];
 
-const locationOptions = [
-  'Pune',
-  'Mumbai',
-  'Bengaluru',
-  'Delhi NCR',
-];
-
 const budgetOptions = [
   { label: 'Below Rs. 10,000', value: '10000' },
   { label: 'Rs. 10,000 - Rs. 15,000', value: '15000' },
@@ -27,7 +20,6 @@ const initialForm = {
   phone: '',
   email: '',
   college: '',
-  location: '',
   budget: '',
 };
 
@@ -97,9 +89,8 @@ function EnquiryModal({ open, onClose }) {
         { Attribute: 'Phone',                       Value: form.phone.replace(/\D/g, '') },
         { Attribute: 'EmailAddress',                Value: form.email },
         { Attribute: 'mx_College_or_Company_Name',  Value: form.college },
-        { Attribute: 'mx_Preferred_Location',       Value: form.location },
         { Attribute: 'mx_Monthly_Budget',           Value: form.budget },
-        { Attribute: 'Source',                      Value: 'Outpost Landing Page' },
+        { Attribute: 'Source',                      Value: 'Ruturaj Nova Landing Page' },
         { Attribute: 'SearchBy',                    Value: 'Phone' },
       ];
 
@@ -245,24 +236,7 @@ function EnquiryModal({ open, onClose }) {
                   />
                 </label>
 
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="grid gap-2 text-[0.94rem] font-medium text-[#3e4654] sm:text-[0.98rem]">
-                    <span>Preferred Location *</span>
-                    <select
-                      required
-                      value={form.location}
-                      onChange={(event) => updateField('location', event.target.value)}
-                      className="h-13 rounded-[16px] border border-[#d7dde8] bg-white px-4 text-[0.98rem] text-[#243041] outline-none transition-colors focus:border-[#ff6d45] sm:h-14 sm:rounded-[18px] sm:px-5 sm:text-[1rem]"
-                    >
-                      <option value="">Select preferred location</option>
-                      {locationOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-
+                <div className="grid gap-5">
                   <label className="grid gap-2 text-[0.94rem] font-medium text-[#3e4654] sm:text-[0.98rem]">
                     <span>Monthly Budget *</span>
                     <select
