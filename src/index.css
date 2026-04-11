@@ -3,66 +3,50 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Neue Haas Display";
-  src: url("/webfonts/NeueHaasDisplayRoman.ttf") format("truetype");
+  font-family: "Agrandir";
+  src: url("/webfonts/Agrandir-WideLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agrandir";
+  src: url("/webfonts/agrandir-regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Haas Display";
-  src: url("/webfonts/NeueHaasDisplayMediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Display";
-  src: url("/webfonts/NeueHaasDisplayMediu.ttf") format("truetype");
+  font-family: "Agrandir";
+  src: url("/webfonts/Agrandir-Tight.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Haas Display";
-  src: url("/webfonts/NeueHaasDisplayBold.ttf") format("truetype");
+  font-family: "Agrandir";
+  src: url("/webfonts/Agrandir-TextBold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Druk";
-  src: url("/webfonts/Druk-Medium-Trial.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Druk";
-  src: url("/webfonts/Druk-Bold-Trial.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Druk";
-  src: url("/webfonts/Druk-Heavy-Trial.otf") format("opentype");
+  font-family: "Agrandir";
+  src: url("/webfonts/Agrandir-GrandHeavy.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Druk";
-  src: url("/webfonts/Druk-Super-Trial.otf") format("opentype");
+  font-family: "Agrandir";
+  src: url("/webfonts/Agrandir-WideBlackItalic.otf") format("opentype");
   font-weight: 900;
-  font-style: normal;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -138,13 +122,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Neue Haas Display", sans-serif;
+    font-family: "Agrandir", sans-serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Druk", sans-serif;
+    font-family: "Agrandir", sans-serif;
     font-weight: 700;
     letter-spacing: auto;
   }
@@ -152,11 +136,11 @@
 
 .community-copy {
   position: absolute;
-  font-family: "Druk", sans-serif;
-  font-size: clamp(6rem, 12vw, 12rem);
-  font-weight: 700;
-  line-height: 0.5;
-  letter-spacing: 16px;
+  font-family: "Agrandir", sans-serif;
+  font-size: clamp(5.4rem, 10.7vw, 10.6rem);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: 0;
   color: #ff5a0a;
   white-space: nowrap;
 }

@@ -20,16 +20,16 @@ const OurRooms = () => {
         </h2>
 
         <div className="mx-auto mt-8 grid max-w-[930px] grid-cols-1 gap-y-10 md:mt-10 md:grid-cols-2 md:gap-x-[118px] lg:mt-4 lg:max-w-[1440px]">
-          {rooms.map((room) => (<div key={room.type} className="mx-auto flex w-full max-w-[350px] flex-col items-center">
-              <div className="w-full overflow-hidden rounded-[24px]">
-                <img src={room.image} alt={room.title} className="h-[240px] w-full object-cover md:h-[255px] lg:h-[260px]"/>
+          {rooms.map((room) => (<div key={room.type} className="mx-auto flex w-full max-w-[550px] flex-col items-center">
+              <div className="w-full overflow-hidden max-w-[450px] rounded-[24px]">
+                <img src={room.image} alt={room.title} className="h-[240px] w-full object-cover md:h-[280px] lg:h-[300px]"/>
               </div>
 
               <div className="mt-5 w-full">
-                <h3 className="text-center text-[1.9rem] font-bold tracking-[-0.03em] text-black">
+                <h3 className="text-center text-[2.5rem] font-bold tracking-[-0.03em] text-black">
                   {room.title}
                 </h3>
-                <p className="mx-auto mt-4 max-w-[370px] text-center text-[13px] leading-[1.28] text-[#2f2f2f] md:max-w-[292px] md:text-left">
+                <p className="mx-auto mt-4 max-w-[400px] text-center text-[1.2rem] leading-[1.28] text-[#2f2f2f] md:max-w-[550px] md:text-left">
                   {room.description}
                 </p>
               </div>

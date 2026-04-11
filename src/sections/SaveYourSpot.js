@@ -34,13 +34,13 @@ const SaveYourSpot = () => {
     setIsSubmitting(true);
     try {
       const payload = [
-        { Attribute: 'FirstName',                  Value: form.name },
-        { Attribute: 'Phone',                       Value: form.phone },
-        { Attribute: 'EmailAddress',                Value: form.email },
-        { Attribute: 'mx_College_or_Company_Name',  Value: form.college },
-        { Attribute: 'mx_Monthly_Budget',           Value: form.budget },
-        { Attribute: 'Source',                      Value: 'Ruturaj Nova Landing Page' },
-        { Attribute: 'SearchBy',                    Value: 'Phone' },
+        { Attribute: 'FirstName', Value: form.name },
+        { Attribute: 'Phone', Value: form.phone },
+        { Attribute: 'EmailAddress', Value: form.email },
+        { Attribute: 'mx_College_or_Company_Name', Value: form.college },
+        { Attribute: 'mx_Monthly_Budget', Value: form.budget },
+        { Attribute: 'Source', Value: 'Ruturaj Nova Landing Page' },
+        { Attribute: 'SearchBy', Value: 'Phone' },
       ];
 
       const { response, result } = await submitLeadSquaredLead(payload);
@@ -53,17 +53,18 @@ const SaveYourSpot = () => {
             IsCreated: result.Message.IsCreated,
           });
         }
-        // Meta Pixel
+
         if (window.fbq) window.fbq('trackCustom', 'Form_Submit');
-        // Google Ads conversion
-        if (window.gtag) window.gtag('event', 'conversion', {
-          send_to: 'AW-11425120901/9ZMYCIbzufsbEIWF9scq',
-          value: 1.0,
-          currency: 'INR',
-        });
+        if (window.gtag) {
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-11425120901/9ZMYCIbzufsbEIWF9scq',
+            value: 1.0,
+            currency: 'INR',
+          });
+        }
         setStep('done');
       } else {
-        setError('Submission failed: ' + (result?.ExceptionMessage || response.statusText || 'Unknown error'));
+        setError(`Submission failed: ${result?.ExceptionMessage || response.statusText || 'Unknown error'}`);
       }
     } catch (err) {
       console.error('Submission failed:', err);
@@ -118,7 +119,6 @@ const SaveYourSpot = () => {
         return;
       }
       submitToLeadSquared();
-      return;
     }
   };
 
@@ -152,36 +152,46 @@ const SaveYourSpot = () => {
   };
 
   return (
-    <section id="book" className="bg-[#f3ebdd] py-14 md:py-20">
-      <div className="mx-auto max-w-[1400px] px-3 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-6 lg:grid-cols-[600px_50px_1fr_364px] lg:gap-0 xl:px-1">
-          <div className="overflow-hidden rounded-[18px] lg:mt-[4px]">
+    <section id="book" className="bg-white py-14 md:py-20">
+      <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-8">
+        <div className="grid items-start gap-8 xl:grid-cols-[1.08fr_0.62fr_1fr] xl:gap-12">
+          <div className="overflow-hidden rounded-[28px]">
             <img
               src="/save-spot.jpg"
               alt="Students enjoying a game night"
-              className="h-[380px] w-full object-cover object-center md:h-[440px] lg:h-[600px]"
+              className="h-[420px] w-full object-cover object-center md:h-[540px] xl:h-[665px]"
             />
           </div>
 
-          <div className="hidden lg:block" />
-
-          <div className="flex h-full flex-col items-center justify-center text-center lg:items-start lg:text-left lg:max-w-[240px] lg:pt-[52px]">
-            <h2 className="font-display text-[3.15rem] uppercase leading-[0.9] !tracking-[5px] text-black sm:text-[4.6rem] lg:text-[4.5rem]">
+          <div className="flex h-full flex-col items-center justify-center text-center xl:items-center xl:justify-center xl:pt-10 xl:text-center">
+            <h2 className=" text-[3rem] uppercase leading-[0.9] !tracking-[5px] text-black sm:text-[4.6rem] lg:text-[6rem]">
               <span className="block">Save</span>
               <span className="block">Your</span>
               <span className="block">Spot</span>
             </h2>
-            <p className="mt-7 max-w-[250px] text-[17px] leading-[1.35] text-[#2a251e] lg:max-w-[250px]">
+            <p className="mt-8 max-w-[350px] text-[18px] leading-[1.42] text-[#1f1f1f] sm:text-[20px] xl:text-[21px]">
               A lifestyle filled with networking, workshops, seminars, and housing made convenient.
             </p>
+
+            <div className="mt-10 xl:mt-auto xl:pt-16">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="inline-flex min-w-[170px] items-center justify-center rounded-[12px] bg-[#ff5a24] px-9 py-4 text-[18px] font-medium text-white shadow-[8px_8px_0_rgba(0,0,0,0.12)] transition-colors hover:bg-[#f24b14]"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
 
-          <div className="rounded-[16px] bg-white px-8 py-8 shadow-sm sm:px-10 lg:min-h-[606px] lg:px-10 lg:py-10">
-            <div className="mx-auto max-w-[320px]">
-              <div className="text-center">
-                <p className="text-[22px] font-semibold tracking-[-0.03em] text-[#1a1814]">Get Free Consultation                </p>
+          <div className="px-6 py-8  sm:px-10 xl:min-h-[665px] xl:px-12 xl:py-10">
+            <div className="mx-auto max-w-[470px]">
+              <div className="border-t border-[#ececec] pt-5 text-center">
+                <p className="text-[38px] font-semibold leading-none tracking-[-0.05em] text-[#2a3138] sm:text-[42px]">
+                  Get Free Consultation
+                </p>
 
-                <div className="mx-auto mt-6 flex w-full max-w-[200px] items-center gap-[6px]">
+                <div className="mx-auto mt-10 flex w-full max-w-[240px] items-center gap-2">
                   {STEPS.map((currentStep, index) => {
                     const done = step === 'done' || index < currentIndex;
                     const active = index === currentIndex;
@@ -189,10 +199,9 @@ const SaveYourSpot = () => {
                     return (
                       <span
                         key={currentStep}
-                        className="flex-1 rounded-full transition-all duration-300"
+                        className="h-[4px] flex-1 rounded-full transition-all duration-300"
                         style={{
-                          height: done || active ? '3px' : '1.5px',
-                          backgroundColor: done || active ? '#f97316' : '#ddd6cc',
+                          backgroundColor: done || active ? '#ff7a53' : '#e6e6e6',
                         }}
                       />
                     );
@@ -201,14 +210,14 @@ const SaveYourSpot = () => {
               </div>
 
               {step !== 'done' ? (
-                <div className="mt-9">
-                  <p className="text-center text-[17px] font-bold leading-[1.3] text-[#1a1814]">
+                <div className="mt-14">
+                  <p className="text-center text-[24px] font-semibold leading-[1.2] tracking-[-0.04em] text-[#232323] sm:text-[28px]">
                     {stepQuestion()}
                   </p>
 
-                  <p className="mt-3 text-center text-[13px] text-[#7a7570]">{stepSubLabel()}</p>
+                  <p className="mt-10 text-center text-[17px] text-[#242424] sm:text-[18px]">{stepSubLabel()}</p>
 
-                  <div className="mt-6 space-y-[10px]">
+                  <div className="mt-7 space-y-4">
                     {step === 'name' && (
                       <input
                         type="text"
@@ -217,13 +226,13 @@ const SaveYourSpot = () => {
                         onKeyDown={handleKeyDown}
                         placeholder="e.g. Rahul Sharma"
                         autoFocus
-                        className="flex h-[52px] w-full items-center justify-center rounded-[8px] border border-[#e8e2da] bg-white px-4 text-center text-[14px] font-semibold text-[#2a251e] placeholder-[#bfb9b1] outline-none transition-colors focus:border-[#f97316] focus:bg-[#fffaf7]"
+                        className="flex h-[56px] w-full items-center justify-center rounded-[6px] border border-[#e6e6e6] bg-white px-5 text-center text-[16px] font-semibold text-[#232323] placeholder-[#b8b8b8] outline-none transition-colors focus:border-[#ff7a53]"
                       />
                     )}
 
                     {step === 'phone' && (
-                      <div className="flex h-[52px] overflow-hidden rounded-[8px] border border-[#e8e2da] bg-white transition-colors focus-within:border-[#f97316] focus-within:bg-[#fffaf7]">
-                        <span className="flex shrink-0 items-center border-r border-[#e8e2da] bg-[#f9f6f2] px-3 text-[13px] font-semibold text-[#5a5550]">
+                      <div className="flex h-[56px] overflow-hidden rounded-[6px] border border-[#e6e6e6] bg-white transition-colors focus-within:border-[#ff7a53]">
+                        <span className="flex shrink-0 items-center border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 text-[15px] font-semibold text-[#5a5550]">
                           +91
                         </span>
                         <input
@@ -234,7 +243,7 @@ const SaveYourSpot = () => {
                           onKeyDown={handleKeyDown}
                           placeholder="10-digit mobile number"
                           autoFocus
-                          className="flex-1 bg-transparent px-3 text-center text-[14px] font-semibold text-[#2a251e] placeholder-[#bfb9b1] outline-none"
+                          className="flex-1 bg-transparent px-3 text-center text-[16px] font-semibold text-[#232323] placeholder-[#b8b8b8] outline-none"
                         />
                       </div>
                     )}
@@ -247,7 +256,7 @@ const SaveYourSpot = () => {
                         onKeyDown={handleKeyDown}
                         placeholder="you@example.com"
                         autoFocus
-                        className="flex h-[52px] w-full items-center justify-center rounded-[8px] border border-[#e8e2da] bg-white px-4 text-center text-[14px] font-semibold text-[#2a251e] placeholder-[#bfb9b1] outline-none transition-colors focus:border-[#f97316] focus:bg-[#fffaf7]"
+                        className="flex h-[56px] w-full items-center justify-center rounded-[6px] border border-[#e6e6e6] bg-white px-5 text-center text-[16px] font-semibold text-[#232323] placeholder-[#b8b8b8] outline-none transition-colors focus:border-[#ff7a53]"
                       />
                     )}
 
@@ -259,7 +268,7 @@ const SaveYourSpot = () => {
                         onKeyDown={handleKeyDown}
                         placeholder="Enter your college or university"
                         autoFocus
-                        className="flex h-[52px] w-full items-center justify-center rounded-[8px] border border-[#e8e2da] bg-white px-4 text-center text-[14px] font-semibold text-[#2a251e] placeholder-[#bfb9b1] outline-none transition-colors focus:border-[#f97316] focus:bg-[#fffaf7]"
+                        className="flex h-[56px] w-full items-center justify-center rounded-[6px] border border-[#e6e6e6] bg-white px-5 text-center text-[16px] font-semibold text-[#232323] placeholder-[#b8b8b8] outline-none transition-colors focus:border-[#ff7a53]"
                       />
                     )}
 
@@ -270,10 +279,10 @@ const SaveYourSpot = () => {
                             key={option.value}
                             type="button"
                             onClick={() => update('budget', option.value)}
-                            className={`mb-[10px] flex h-[52px] w-full items-center justify-center rounded-[8px] border text-[14px] font-semibold transition-colors ${
+                            className={`mb-4 flex h-[56px] w-full items-center justify-center rounded-[6px] border text-[16px] font-semibold transition-colors ${
                               form.budget === option.value
-                                ? 'border-[#f97316] bg-[#fff5f0] text-[#2a251e]'
-                                : 'border-[#e8e2da] bg-white text-[#2a251e] hover:border-[#f9c4aa]'
+                                ? 'border-[#ff7a53] bg-[#fff5f1] text-[#232323]'
+                                : 'border-[#e6e6e6] bg-white text-[#232323] hover:border-[#ffbea8]'
                             }`}
                           >
                             Rs. {option.label}
@@ -283,9 +292,9 @@ const SaveYourSpot = () => {
                     )}
                   </div>
 
-                  {error && <p className="mt-3 text-center text-[11px] text-red-500">{error}</p>}
+                  {error && <p className="mt-3 text-center text-[12px] text-red-500">{error}</p>}
 
-                  <p className="mx-auto mt-8 max-w-[280px] text-center text-[13px] leading-[1.5] text-[#7a7570]">
+                  <p className="mx-auto mt-12 max-w-[360px] text-center text-[17px] leading-[1.45] text-[#2f2f2f]">
                     No matter how long you&apos;re staying, you&apos;ll feel right at home.
                   </p>
 
@@ -293,10 +302,10 @@ const SaveYourSpot = () => {
                     type="button"
                     onClick={handleContinue}
                     disabled={isSubmitting}
-                    className="mt-6 flex h-[52px] w-full items-center justify-center gap-2 rounded-[8px] bg-[#f97316] text-[15px] font-semibold text-white transition-colors hover:bg-[#ea6b0a] disabled:opacity-60"
+                    className="mt-10 flex h-[58px] w-full items-center justify-center gap-2 rounded-[8px] bg-[#ff8b63] text-[16px] font-semibold text-white transition-colors hover:bg-[#ff7a53] disabled:opacity-60"
                   >
                     {buttonLabel()}
-                    {!isSubmitting && <ArrowRight size={16} />}
+                    {!isSubmitting && <ArrowRight size={18} />}
                   </button>
 
                   <p className="mt-4 text-center text-[11px] text-[#bfb9b1]">
@@ -304,7 +313,7 @@ const SaveYourSpot = () => {
                   </p>
                 </div>
               ) : (
-                <div className="mt-9 text-center">
+                <div className="mt-16 text-center">
                   <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#ddf9e4]">
                     <Check className="h-9 w-9 text-[#18a957]" strokeWidth={2.4} />
                   </div>
@@ -314,34 +323,10 @@ const SaveYourSpot = () => {
                   <p className="mx-auto mt-4 max-w-[320px] text-[1rem] leading-relaxed text-[#767c88]">
                     Our team will reach out shortly
                   </p>
-                  <div className="hidden mt-6 rounded-[8px] border border-[#e8e2da] bg-[#faf7f3] px-5 py-4 text-left">
-                    {[
-                      ['Name', form.name],
-                      ['Phone', `+91 ${form.phone} ✓`],
-                      ['Email', form.email],
-                      ['College', form.college],
-                      ['Budget', `Rs. ${form.budget}/mo`],
-                    ].map(([label, value]) => (
-                      <div key={label} className="mb-2 flex items-baseline justify-between gap-3 last:mb-0">
-                        <span className="shrink-0 text-[11px] text-[#9f9a94]">{label}</span>
-                        <span className="truncate text-right text-[12px] font-semibold text-[#2a251e]">{value}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               )}
             </div>
           </div>
-        </div>
-
-        <div className="mt-8 text-center md:mt-10">
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
-            className="inline-flex min-w-[160px] items-center justify-center rounded-[10px] bg-[#f97316] px-8 py-4 text-[15px] font-semibold text-white shadow-[0_6px_0_rgba(180,80,0,0.25)] transition-colors hover:bg-[#ea6b0a]"
-          >
-            Book Now
-          </button>
         </div>
       </div>
     </section>
