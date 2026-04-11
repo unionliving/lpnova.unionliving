@@ -4,13 +4,13 @@ const OurRooms = () => {
             type: 'TWIN',
             title: 'TWIN',
             description: 'Cozy twin room with modern amenities, perfect for sharing and fostering community connections.',
-            image: '/room-twin.jpg',
+            image: '../assets/novaimg1.webp',
         },
         {
             type: 'PRIVATE',
             title: 'PRIVATE',
             description: 'Private room with en-suite bathroom, fully furnished, high-speed Wi-Fi, and regular housekeeping.',
-            image: '/room-private.jpg',
+            image: '../assets/novaimg2.webp',
         },
     ];
     return (<section id="rooms" className="bg-white py-12 md:py-16">
