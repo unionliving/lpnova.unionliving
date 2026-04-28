@@ -39,7 +39,7 @@ const SaveYourSpot = () => {
         { Attribute: 'EmailAddress', Value: form.email },
         { Attribute: 'mx_College_or_Company_Name', Value: form.college },
         { Attribute: 'mx_Monthly_Budget', Value: form.budget },
-        { Attribute: 'Source', Value: 'Ruturaj House of Kp Landing Page' },
+        { Attribute: 'Source', Value: 'Ruturaj Nova Landing Page' },
         { Attribute: 'SearchBy', Value: 'Phone' },
       ];
 
