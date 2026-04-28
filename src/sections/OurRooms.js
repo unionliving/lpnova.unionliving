@@ -6,6 +6,7 @@ const OurRooms = () => {
             description: 'Cozy twin room with modern amenities, perfect for sharing and fostering community connections.',
             image: '../assets/novaimg2.webp',
         },
+        
         {
             type: 'PRIVATE',
             title: 'PRIVATE',
@@ -13,6 +14,7 @@ const OurRooms = () => {
             image: '../assets/novaimg1.webp',
         },
     ];
+
     return (<section id="rooms" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <h2 className="font-display mb-10 text-center text-[2.8rem] uppercase leading-[0.9] !tracking-[0] text-black sm:text-[4rem] md:text-left md:text-[5rem]  lg:text-[4.7rem]">

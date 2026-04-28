@@ -9,6 +9,7 @@ const Footer = () => {
     { name: 'Our Blogs', href: 'https://www.unionliving.in/blogs' },
   ];
 
+  
   const importantLinks = [
     { name: 'Rules and Regulations', href: 'https://www.unionliving.in/onboardingpolicy' },
     { name: 'Terms and Condition', href: 'https://www.unionliving.in/termsandcondition' },
