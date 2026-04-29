@@ -88,7 +88,9 @@ function EnquiryModal({ open, onClose }) {
         { Attribute: 'mx_Monthly_Budget',           Value: form.budget },
         { Attribute: 'Source',                      Value: 'Ruturaj Nova Landing Page' },
         { Attribute: 'SearchBy',                    Value: 'Phone' },
-         { Attribute: 'Ad Name' , Value: 'Facebook - nova Launch Ad'},
+         { Attribute: 'Ad Name' , Value: 'RP_ShortPropTour_Video_Web_RentWebsites_Nova_Mar-26_Nova-LP'},
+         { Attribute: 'Ad Name' , Value: 'RP_LongPropTour_Video_Web_RentWebsites_Nova_May-26_Nova-LP'},
+         { Attribute: 'Ad Name' , Value: 'RP_NovaReel_VideoUGC_Web_RentWebsites_Nova_May-26_Nova-LP'},
       ];
 
       const { response, result } = await submitLeadSquaredLead(payload);
